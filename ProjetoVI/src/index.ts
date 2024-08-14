@@ -1,7 +1,5 @@
 import express, { Application } from "express";
 import cors, { CorsOptions } from "cors";
-import { startServer } from "./server";
-
 
 export default class Server {
     private app: Application;
@@ -20,7 +18,4 @@ export default class Server {
         app.use(express.json());
         app.use(express.urlencoded({ extended: true }));
     }
-    
 }
-
-

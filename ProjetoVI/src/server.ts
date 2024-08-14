@@ -1,27 +1,58 @@
 import express, { Application } from "express";
 import cors, { CorsOptions } from "cors";
+import axios from "axios";
 import { createConnection, closeConnection } from './database';
 
 export default class Server {
     private app: Application;
 
-    constructor() {
-        this.app = express();
-        this.config();
+    constructor(app: Application) {
+        this.app = app;
+        this.config(this.app);
         this.routes();
     }
 
-    private config(): void {
+    private config(app: Application): void {
         const corsOptions: CorsOptions = {
             origin: "http://localhost:8081"
         };
 
-        this.app.use(cors(corsOptions));
-        this.app.use(express.json());
-        this.app.use(express.urlencoded({ extended: true }));
+        app.use(cors(corsOptions));
+        app.use(express.json());
+        app.use(express.urlencoded({ extended: true }));
     }
 
     private routes(): void {
+        this.app.post('/log', async (req, res) => {
+            try {
+                const response = await axios.post('http://localhost:8080/logs', {
+                    message: req.body.message
+                });
+                res.send(response.data);
+            } catch (error) {
+                res.status(500).send('Error logging data');
+            }
+        });
+
+        this.app.get('/logs', async (req, res) => {
+            try {
+                const response = await axios.get('http://localhost:8080/logs');
+                res.send(response.data);
+            } catch (error) {
+                res.status(500).send('Error retrieving logs');
+            }
+        });
+
+        this.app.get('/logs/:id', async (req, res) => {
+            try {
+                const response = await axios.get(`http://localhost:8080/logs/${req.params.id}`);
+                res.send(response.data);
+            } catch (error) {
+                res.status(500).send('Error retrieving log');
+            }
+        });
+
+        // Adicionar uma rota para testar a conexão com o banco de dados
         this.app.get('/test-db', async (req, res) => {
             try {
                 const connection = await createConnection();
@@ -33,20 +64,18 @@ export default class Server {
             }
         });
     }
-
-    public start(): void {
-        const PORT = process.env.PORT || 4000;
-        this.app.listen(PORT, () => {
-            console.log(`Server is running on port ${PORT}`);
-        });
-    }
 }
 
 // A função principal para inicializar o servidor
 const startServer = () => {
-    const server = new Server();
-    server.start();
+    const app: Application = express();
+    new Server(app);
+
+    const PORT = process.env.PORT || 4000;
+    app.listen(PORT, () => {
+        console.log(`Server is running on port ${PORT}`);
+    });
 };
 
 startServer();
-export {startServer}
+export { startServer };
