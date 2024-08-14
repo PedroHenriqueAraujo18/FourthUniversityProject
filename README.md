@@ -9,6 +9,8 @@ Repositório para guardar os arquivos do Projeto 6
 ## 📚 Documentação
 - [NodeJS](https://nodejs.org/pt/learn/getting-started/nodejs-with-typescript).
 - [MySQL](https://www.mysql.com/)
+- [VueJs](https://br.vuejs.org/)
+- [MongoDb](https://www.mongodb.com/docs/)
 
 ## 📚 Codigos para funcionar o NodeJS
 - npm init
@@ -18,6 +20,9 @@ Repositório para guardar os arquivos do Projeto 6
 - npm install --save-dev @types/axios
 - npm install mysql2
 - npm install --save-dev @types/mysql
+
+## 📚 Requisitos para iniciar o projeto
+
 
 ## Participantes
  - [Pedro Henrique Santos de Araujo](https://github.com/PedroHenriqueAraujo18)
