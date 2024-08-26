@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    
+  
+}
+
+:root{
+--azul:#5A7ABD;
+
+}
+.logoh2{
+    color:var(--azul);
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    
+}
+
+.base {
+    height: 100vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 10;
+}
+
+/* Estilo específico para #basef */
+.basefundo1 {
+    background-image: url(/img/base.png);
+    
+}
+
+/* Estilo específico para #basef2 */
+.basefundo2 {
+    background-image: url(/img/base1.png);
+}
+
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
