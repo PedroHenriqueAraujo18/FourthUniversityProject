@@ -48,13 +48,14 @@ body {
 }
 .menu{
     display: flex;
-    
+    justify-content: space-between;
     
 }
 
 nav {
-    margin-left: 50%;
+    
     padding: 10px;
+    margin: 10px;
 }
 
 nav ul {
@@ -87,6 +88,38 @@ nav ul li a:hover {
 .opcao{
     display: flex;
     padding: 10px;
+}
+
+.btn{
+    padding: 10px;
+    margin: 10px;
+    width: 150px;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    border-radius: 6px;
+    
+    font-weight: 800;
+}
+
+.btnstyle0 {
+    border-style: solid;
+    background-color: white;
+    border-color: var(--azul);
+    color: var(--azul);
+}
+.btnstyle1{
+    border: none;
+    background-color: var(--azul);
+    color: white;
+}
+
+.btnstyle0:hover{
+    background-color:#e3e3e3;
+}
+
+.btnstyle1:hover{
+    background-color:#a4b2d1;
 }
 
 
