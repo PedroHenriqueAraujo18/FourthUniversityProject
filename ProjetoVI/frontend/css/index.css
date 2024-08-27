@@ -101,6 +101,21 @@ nav ul li a:hover {
     
     font-weight: 800;
 }
+.box{
+    display: flex;
+    justify-content:space-around;
+    
+}
+.textbox{
+
+    margin-right: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    
+}
+
 
 .btnstyle0 {
     border-style: solid;
@@ -122,6 +137,24 @@ nav ul li a:hover {
     background-color:#a4b2d1;
 }
 
+.styletext{
+    display: flex;
+    justify-content: center;
+    color: var(--azul);
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+}
+
+.texth1{
+    font-size: 60px;
+    width: 800px;
+    margin-top: 200px;
+}
+
+.textp{
+    font-size: 30px;
+}
+
 
 
 
@@ -132,7 +165,6 @@ footer {
     color: #fff;
     text-align: center;
     padding: 10px 0;
-    position: fixed;
     bottom: 0;
     width: 100%;
 }
