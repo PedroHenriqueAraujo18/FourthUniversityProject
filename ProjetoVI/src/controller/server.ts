@@ -1,7 +1,7 @@
 import express, { Application } from "express";
 import cors, { CorsOptions } from "cors";
 import axios from "axios";
-import { createConnection, closeConnection } from './database';
+import { createConnection, closeConnection } from '../repository/database';
 
 export default class Server {
     private app: Application;
