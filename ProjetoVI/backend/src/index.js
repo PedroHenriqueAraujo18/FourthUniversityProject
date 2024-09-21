@@ -24,6 +24,10 @@ connection.connect((err) => {
   }
 });
 
+app.get('/', (req, res) => {
+  res.send('Bem-vindo ao servidor!');
+});
+
 // Rota POST para registro de usuário
 app.post('/register', (req, res) => {
   const { name, email, password } = req.body;
@@ -40,7 +44,22 @@ app.post('/register', (req, res) => {
     }
   });
 });
+app.post('/login', (req, res) => {
+  const { email, password } = req.body;
 
+  // Verificar se o usuário existe no banco de dados
+  const query = 'SELECT * FROM users WHERE email = ? AND password = ?';
+  connection.query(query, [email, password], (err, results) => {
+    if (err) {
+      console.error('Erro ao consultar o banco de dados:', err);
+      res.status(500).send({ message: 'Erro ao fazer login.' });
+    } else if (results.length > 0) {
+      res.status(200).send({ message: 'Login bem-sucedido!' });
+    } else {
+      res.status(401).send({ message: 'Credenciais inválidas. Tente novamente.' });
+    }
+  });
+});
 app.listen(port, () => {
   console.log(`Servidor rodando em http://localhost:${port}`);
 });
