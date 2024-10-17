@@ -1,11 +1,16 @@
 {
   "dependencies": {
     "@popperjs/core": "^2.11.8",
+<<<<<<< HEAD
     "axios": "^1.7.7",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
     "cors": "^2.8.5",
     "multer": "^1.4.5-lts.1",
     "mysql2": "^3.11.3"
+=======
+    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3"
+>>>>>>> 09bc91147670746dae6525ad6467aa5cde9e9bd4
   }
 }
